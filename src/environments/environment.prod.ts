@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl:'http://ivoone-001-site3.dtempurl.com/'
 };

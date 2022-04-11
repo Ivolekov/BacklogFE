@@ -1,0 +1,6 @@
+form {
+    border: 1px solid gray;
+    padding: 10% 15%;
+    margin-top: 20%;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+}

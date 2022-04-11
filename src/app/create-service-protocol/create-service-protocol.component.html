@@ -1,0 +1,257 @@
+<div class="container-fluid">
+  <div class="row">
+    <h1>Създай сервизен протокол</h1>
+    <!-- <h1 *ngIf="service.serviceProtocolFormData.id == 0">Създай сервизен протокол</h1>
+    <h1 *ngIf="service.serviceProtocolFormData.id != 0">Редактирай сервизен протокол №{{service.serviceProtocolFormData.id}}</h1> -->
+    <form [formGroup]="serviceProtocolForm" (ngSubmit)="submitServiceProtocol()" autocomplete="off">
+      <!-- <input name="Id" type="hidden" [value]="service.serviceProtocolFormData.id"> -->
+      <div class="row mb15 mt15">
+        <div class="col-md-4">
+          <div class="input-group">
+                <!-- <i class="fas fa-phone" title="ClientPhone" [class.green-icon]="ClientPhone.valid" [class.red-icon]="ClientPhone.invalid && ClientPhone.touched"></i> -->
+            <label class="input-group-text bg-white" title="ClientPhone" for="spClientPhone"><i class="fas fa-phone"></i></label>
+            <input formControlName="ClientPhone" id="spClientPhone" required name="ClientPhone" class="form-control" placeholder="*Телефонен номер на клиент">
+          </div>
+          <!-- <div class="alert alert-danger" *ngIf="isClientPhoneNotValitLenght">Телефонен номер на клиент не може да е по-дълго от 100 символа.</div> -->
+        </div>
+        <div class="col-md-4">
+          <div class="input-group">
+                <!-- <i class="fas fa-copyright" title="BrandModel" [class.green-icon]="BrandModel.valid" [class.red-icon]="BrandModel.invalid && BrandModel.touched"></i> -->
+            <label class="input-group-text bg-white" title="BrandModel" for="spBrandModel"><i class="fas fa-copyright"></i></label>
+            <input formControlName="BrandModel" id="spBrandModel" required name="BrandModel" class="form-control" placeholder="*Марка и модел">
+          </div>
+          <!-- <div class="alert alert-danger" *ngIf="isBrandModelNotValitLenght">Марката и моделът не може да е по-дълго от 100 символа.</div> -->
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <label class="input-group-text bg-white" title="ClientEmail" for="spClientEmail"><i class="fas fa-at"></i></label>
+            <input formControlName="ClientEmail" id="spClientEmail" name="ClientEmail" class="form-control not-required" placeholder="Email адрес на клиент">
+          </div>
+          <!-- <div class="alert alert-danger" *ngIf="isClientEmailNotValitLenght">Email адресс на клиент не може да е по-дълго от 100 символа</div> -->
+        </div>
+      </div>
+      <div class="row mb15">
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <label class="input-group-text bg-white" title="ServiceAction" for="spServiceAction"><i class="fas fa-laptop-medical"></i></label>
+            <input formControlName="ServiceAction" id="spServiceAction" name="ServiceAction" class="form-control not-required" placeholder="Ремонтна дейност">
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <label class="input-group-text bg-white" title="FaultInformation" for="spFaultInformation"><i class="fas fa-info"></i></label>
+            <input formControlName="FaultInformation" id="spFaultInformation" name="FaultInformation" class="form-control not-required" placeholder="Информация за повредата">
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <label class="input-group-text bg-white" for="spFinalPrice" title="FinalPrice"><i class="fas fa-tag"></i></label>
+            <input formControlName="FinalPrice" id="spFinalPrice" name="FinalPrice" class="form-control not-required" placeholder="Оферирана цена">
+          </div>
+          <!-- <div class="alert alert-danger" *ngIf="isBrandModelNotValitLenght">Марката и моделът не може да е по-дълго от 100 символа.</div> -->
+        </div>
+      </div>
+      <div class="row mb15">
+          <div class="input-group">
+            <label class="input-group-text bg-white" title="Comment" for="spComment"><i class="fas fa-comment"></i></label>
+            <textarea formControlName="Comment" id="spComment" rows="5" name="Comment" class="form-control not-required" placeholder="Напиши коментар или забележка"></textarea>
+             <!-- <div class="alert alert-danger" *ngIf="isCommentNotValitLenght">Коментарът не може да е по-дълго от 250 символа</div> -->
+        </div>
+      </div>
+      <section>
+        <h5>Атрибути</h5>
+        <div class="row ml40">
+          <div class="form-check col-md-1 border-bottom">
+            <input formControlName="SimTray" type="checkbox" class="form-check-input not-required" id="sim-tary">
+            <label class="form-check-label" for="sim-tary">SIM Tray</label>
+          </div>
+          <div class="form-check col-md-1 border-bottom">
+            <input formControlName="Charger" type="checkbox" class="form-check-input not-required" id="charger">
+            <label class="form-check-label" for="charger">Зарядно</label>
+          </div>
+          <div class="form-check col-md-1 border-bottom">
+            <input  formControlName="Bag" type="checkbox" class="form-check-input not-required" id="bag">
+            <label class="form-check-label" for="bag">Чанта</label>
+          </div>
+          <div class="form col-md-9">
+            <div class="input-group">
+              <label class="input-group-text bg-white" title="Other" for="spOther"><i class="fas fa-hashtag"></i></label>
+              <input formControlName="Other" name="Other" id="spOther" class="form-control not-required" placeholder="Друго">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h5>Сигурност</h5>
+        <div class="row">
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <label class="input-group-text bg-white" title="Pin" for="spPin"><i class="fas fa-key"></i></label>
+              <input formControlName="Pin" id="spPin" name="Pin" class="form-control not-required" placeholder="Пин код">
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <div class="input-group">
+              <label class="input-group-text bg-white" title="UnlockPass" for="spUnlockPass"><i class="fas fa-unlock"></i></label>
+              <input formControlName="UnlockPass" id="spUnlockPass" name="UnlockPass" class="form-control not-required" placeholder="Парола за отключване">
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+             <div class="input-group">
+              <label class="input-group-text" title="LockPattern" for="lockPattern"><i class="fas fa-code-branch"></i></label>
+              <input type="text" formControlName="LockPattern" [readonly]="true" [disabled]="true" id="lockPattern" name="LockPattern" class="form-control not-required" placeholder="lock pattern">
+            </div>
+          </div> 
+          <svg class="patternlock col-md-2" id="lock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g class="lock-actives"></g>
+            <g class="lock-lines"></g>
+            <g class="lock-dots">
+              <circle cx="20" cy="20" r="2" />
+              <circle cx="50" cy="20" r="2" />
+              <circle cx="80" cy="20" r="2" />
+  
+              <circle cx="20" cy="50" r="2" />
+              <circle cx="50" cy="50" r="2" />
+              <circle cx="80" cy="50" r="2" />
+  
+              <circle cx="20" cy="80" r="2" />
+              <circle cx="50" cy="80" r="2" />
+              <circle cx="80" cy="80" r="2" />
+            </g>
+          </svg>
+          <div class="col-md-4 lockPatternBtn hide"><div onclick="releaseLockPattern()" class="btn btn-info btn-lg col-md-12"><i class="fas fa-pen"></i></div></div> 
+        </div>
+      </section>
+      <section>
+        <h5>Части/Услуги</h5>
+        <div class="row" style="margin-bottom:10px;">
+          <div class="col-md-2 font-weight-bold" style="padding: 0px; border-bottom: 1px solid;">Доставчик</div>
+          <div class="col-md-2 font-weight-bold" style="padding: 0px; border-bottom: 1px solid;">Вид</div>
+          <div class="col-md-2 font-weight-bold" style="padding: 0px; border-bottom: 1px solid;">Цена</div>
+          <div class="col-md-2 font-weight-bold" style="padding: 0px; border-bottom: 1px solid;">Гаранция</div>
+          <div class="col-md-2 font-weight-bold" style="padding: 0px; border-bottom: 1px solid;">Дата</div>
+        </div>
+        <!-- <div id="partContainer">
+          <div *ngFor="let part of partList" class="form-row" style="margin-bottom:10px;" id="{{part.id}}">
+            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.supplier}}" /></div>
+            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.partType}}" /></div>
+            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.partPrice}}лв." /></div>
+            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.warrantyPeriod}}м." /></div>
+            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.date | date: 'dd.MM.yyyy'}}" /></div>
+            <div class="col-md-1" style="padding:0px;"><button class="col-md-12 form-control btn btn-info" (click)="open(content, part, $event)">Редактирай</button></div>
+            <div class="col-md-1" style="padding:0px;"><input class="col-md-12 form-control btn btn-danger" type="button" name="deletePart" value="Изтрий" (click)="deleteServicePart(part.id)" /></div>
+          </div>
+        </div> -->
+        <!-- <div id="partContainer"></div>    -->
+        <div formArrayName="ServiceParts" *ngFor="let part of servicePartsArray; let i = index;">
+          <div class="row mt15" [formGroupName]="i">
+            <div class="col-md-2 pl0"><input class="col-md-12 form-control not-required" formControlName="supplier" type="text" placeholder="Доставчик*" /></div>
+            <div class="col-md-2 pl0"><input class="col-md-12 form-control not-required" formControlName="partType" type="text" placeholder="Вид" /></div>
+            <div class="col-md-2 pl0"><input class="col-md-12 form-control not-required" formControlName="partPrice" type="text" placeholder="Цена" /></div>
+            <div class="col-md-2 pl0"><input class="col-md-12 form-control not-required" formControlName="warrantyPeriod" type="text" placeholder="Гаранция" /></div>
+            <div class="col-md-2 pl0"><input class="col-md-12 form-control not-required" formControlName="date" type="date" placeholder="Дата" /></div>
+            <div class="col-md-1 pl0"><input class="col-md-12 form-control btn btn-danger" type="button" name="deletePart" value="Изтрий" (click)="deleteServicePart(i)" /></div>
+          </div>
+        </div>
+        <div class="row mt15"><div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control btn btn-primary" type="button" name="addNewPart" value="Добави част/успуга" (click)="onAddPart()"/></div></div>
+      </section>      
+       <div class="group mt20">
+        <div class="row">
+          <button type="submit" [disabled]="serviceProtocolForm.invalid" class="btn btn-success btn-lg btn-block col-md-6 offset-md-3"><i class="fas fa-database"></i> Създай протокол</button>
+          <div class="col-md-6">
+            <!-- <button type="submit" class="btn btn-success btn-lg btn-block" *ngIf="service.serviceProtocolFormData.id == 0" [disabled]="form.invalid"><i class="fas fa-database"></i> Създай протокол</button> -->
+          </div>
+          <div class="col-md-6">
+            <!-- <button type="reset" class="btn btn-warning btn-lg btn-block" *ngIf="service.serviceProtocolFormData.id == 0" (click)="resetForm(form)"><i class="fas fa-history"></i> Зачисти формата</button> -->
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6">
+            <!-- <button type="submit" class="btn btn-info btn-lg btn-block" *ngIf="service.serviceProtocolFormData.id != 0" [disabled]="form.invalid"><i class="fas fa-edit"></i> Редактирай</button> -->
+          </div>
+          <div class="col-md-6">
+            <!-- <button type="button" class="btn btn-outline-danger btn-lg btn-block" (click)="generateFileDocument(service.serviceProtocolFormData.id)" *ngIf="service.serviceProtocolFormData.id != 0" [disabled]="form.invalid"><i class="fas fa-file-pdf"></i> Генерирай PDF</button> -->
+          </div>
+          <div class="col-md-12" style="margin-top:10px;">
+            <!-- <button type="reset" class="btn btn-warning btn-lg btn-block" *ngIf="service.serviceProtocolFormData.id != 0" (click)="resetForm(form)"><i class="fas fa-history"></i> Зачисти формата</button> -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+  
+  <!-- <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Редактирай част/услуга</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="Supplier">Доставчик</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                <i class="fa fa-ellipsis-v" title="Supplier"></i>
+              </div>
+            </div>
+            <input #Supplier="ngModel" [(ngModel)]="part.supplier" name="Supplier" class="form-control not-required">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="PartType">Вид</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                <i class="fas fa-ellipsis-v" title="PartType"></i>
+              </div>
+            </div>
+            <input #PartType="ngModel" [(ngModel)]="part.partType" name="PartType" class="form-control not-required">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Supplier">Дата</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                <i class="fa fa-clock" title="Date"></i>
+              </div>
+            </div>
+            <input #Date="ngModel" [(ngModel)]="part.date" name="Date" type="date" class="form-control not-required">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="PartPrice">Цена</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <i class="fas fa-ellipsis-v" title="PartPrice"></i>
+                </div>
+              </div>
+              <input #PartPrice="ngModel" [(ngModel)]="part.partPrice" name="PartPrice" class="form-control not-required">
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="WarrantyPeriod">Гаранция в месеци</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <i class="fas fa-ellipsis-v" title="WarrantyPeriod"></i>
+                </div>
+              </div>
+              <input [(ngModel)]="part.warrantyPeriod" name="WarrantyPeriod" class="form-control not-required">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Запази</button>
+    </div>
+  </ng-template>
+   -->

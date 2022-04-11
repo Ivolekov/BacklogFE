@@ -1,0 +1,41 @@
+<div class="col-md-12">
+    <div class="col-md-5">
+      <div class="input-group mt10 mb20">
+       
+        <input id="search" ngModel (ngModelChange)="search($event)" type="text" class="form-control not-required" placeholder="Търси" aria-label="Search">
+        <label (click)="searchOnClick()" class="input-group-text" title="Търсене" for="search"><i class="fas fa-search"></i></label>
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>№</th>
+          <th>Марка и модел</th>
+          <th>Телефон</th>
+          <th>Дата на приемане</th>
+          <th>Цена</th>
+          <th>Статус</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let serviceProtocol of serviceProtocols | slice : (page-1) * pageSize : (page-1) * pageSize + pageSize; let i = index">
+            <td routerLink="/serviceProtocol/{{serviceProtocol.id}}">{{ serviceProtocol.id }}</td>
+            <td routerLink="/serviceProtocol/{{serviceProtocol.id}}">{{ serviceProtocol.brandModel }} </td>
+            <td routerLink="/serviceProtocol/{{serviceProtocol.id}}">{{ serviceProtocol.clientPhone }} </td>
+            <td routerLink="/serviceProtocol/{{serviceProtocol.id}}">{{ serviceProtocol.dateOfIssue | date: 'dd/MM/yyyy HH:mm'}} </td>
+            <td routerLink="/serviceProtocol/{{serviceProtocol.id}}">{{ serviceProtocol.finalPrice}} лв.</td>
+            <td>
+              <i class="far fa-thumbs-up fa-lg" style="padding-right: 10px;" title="Готов от сервиз" (click)="changeProtocolStatus(serviceProtocol.id, 2, i)" [ngClass]="{'text-info': serviceProtocol.serviceProtocolStatusId == 2}"></i>
+              <i class="fas fa-info-circle fa-lg" style="padding-right: 10px;" title="Клиента е информиран" (click)="changeProtocolStatus(serviceProtocol.id, 3, i)" [ngClass]="{'text-warning': serviceProtocol.serviceProtocolStatusId == 3}"></i>
+              <i class="far fa-check-circle fa-lg" style="padding-right: 10px;" title="Предаден на клиент" (click)="changeProtocolStatus(serviceProtocol.id, 4, i)" (click)="generateServiceProtocolWarrantyCardFileDocument(serviceProtocol.id)" [ngClass]="{'text-success': serviceProtocol.serviceProtocolStatusId == 4}"></i>
+            </td>
+            <td><i class="far fa-file-pdf fa-lg text-warning" (click)="generateFileDocument(serviceProtocol.id)"></i></td>
+        <td><i class="far fa-trash-alt fa-lg text-danger" (click)="arhiveServiceProtocol(serviceProtocol.id, i)"></i></td>
+          </tr>
+      </tbody>
+    </table>
+    <ngb-pagination [collectionSize]="itemsCount" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true" [pageSize]="pageSize"></ngb-pagination>
+  </div>
+  

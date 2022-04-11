@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form [formGroup]='loginForm' (ngSubmit)='login()'>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="username" formControlName='username' placeholder="Потребителско име">
+                  <label class="form-label" for="username">Потребителско име</label>
+                </div>
+                <div *ngIf="username.touched && username.errors?.['required']" class="alert alert-danger">
+                    Полето е задължително.
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="password" formControlName='password' placeholder="Парола">
+                  <label class="form-label" for="password">Парола</label>
+                </div>
+                <div *ngIf="password.touched && password.errors?.['required']" class="alert alert-danger">
+                    Полето е задължително.
+                </div>
+                <button type="submit" class="btn btn-outline-success col-lg-12" [disabled]="loginForm.invalid">Вход</button>
+              </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>

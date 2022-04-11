@@ -1,1 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
+.loader{
+    position: absolute;
+    top: 38%;
+    left: 48%;
+    margin-left: -60px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}
+
+.mb15{
+    margin-bottom: 15px;
+}
+
+.mt15{
+    margin-top: 15px;
+}
+
+.ml40 {
+    margin-left: 40px;
+  }
+  
+.mt20{
+    margin-top: 20px;
+}
+
+  button:hover:enabled {
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  }
+  
+  button:enabled {
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  }
+
+  .green-icon {
+    color: #28a745;
+  }
+  
+  .red-icon {
+    color: #dc3540;
+  }
+
+  .bg-white {
+    background:white;
+  }
+  input.ng-touched.ng-invalid {
+    border-color: #dc3540;
+  }
+  
+  input.ng-valid {
+    border-color: #28a745;
+  }
+  
+  textarea.ng-touched.ng-invalid {
+    border-color: #dc3540;
+  }
+  
+  textarea.ng-valid {
+    border-color: #28a745;
+  }
+
+  table tr:hover {
+    cursor: pointer;
+  }
+
+  input.not-required, textarea.not-required {
+    border-color: #ced4da;
+  }
+
+  .hide {
+    display: none !important;
+  }
+  
+  .ml5 {
+    margin-left: 5px;
+  }
+  
+  .mr10 {
+    margin-right: 10px !important;
+  }
+  
+  .mb20{
+    margin-bottom: 20px;
+  }
+
+  .pl0{
+    padding-left: 0px;;
+  }
+
+  .lockPattern, .lockPatternBtn {
+    /* padding-top: 10%; */
+    /* height: 32%; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  
+  .disabled {
+    pointer-events: none;
+    background: #939597;
+    opacity: 0.5;
+  }
+  .mt10{
+    margin-top: 10px;;
+  }
