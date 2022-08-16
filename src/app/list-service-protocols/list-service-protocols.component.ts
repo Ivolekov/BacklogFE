@@ -4,7 +4,7 @@ import { ServiceprotocolService } from '../services/serviceprotocol.service';
 import { LoaderService } from '../services/loader.service';
 import { NotificationService } from '../services/notification.service';
 import { DocumentService } from '../services/document.service';
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-list-service-protocols',
@@ -20,7 +20,8 @@ export class ListServiceProtocolsComponent implements OnInit {
   constructor(private service: ServiceprotocolService,
               private documentService: DocumentService,
               private loaderService: LoaderService, 
-              private notificationService: NotificationService) { 
+              private notificationService: NotificationService,
+              public authService: AuthService) { 
     loaderService.showLoader = true;
   }
 

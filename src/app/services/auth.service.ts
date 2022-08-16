@@ -26,6 +26,12 @@ private registerPath = environment.apiUrl + 'Identity/register';
   }
 
   getToken(): string{
+    // let isAuthenticated = localStorage.getItem('token');
+    // if (isAuthenticated == null) {
+    //   return false;
+    // } else {
+    //   return true;
+    // }
     return localStorage.getItem('token');
   }
   

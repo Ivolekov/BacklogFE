@@ -140,25 +140,6 @@
           </div>
         </div>
         <div class="row mt15"><div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control btn btn-primary" type="button" name="addNewPart" value="Добави част/успуга" (click)="onAddPart()"/></div></div>
-        <!--<div id="partContainer">
-          <div *ngFor="let part of partList" class="form-row" style="margin-bottom:10px;" id="{{part.id}}">
-            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.supplier}}" /></div>
-            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.partType}}" /></div>
-            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.partPrice}}лв." /></div>
-            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.warrantyPeriod}}м." /></div>
-            <div class="col-md-2" style="padding: 0px;"><input class="col-md-12 form-control" style="border-radius: 0; border: none; border-bottom: 1px solid; background: white;" disabled type="text" value="{{part.date | date: 'dd.MM.yyyy'}}" /></div>
-            <div class="col-md-1" style="padding:0px;"><button class="col-md-12 form-control btn btn-info" (click)="open(content, part, $event)">Редактирай</button></div>
-            <div class="col-md-1" style="padding:0px;"><input class="col-md-12 form-control btn btn-danger" type="button" name="deletePart" value="Изтрий" (click)="deleteServicePart(part.id)" /></div>
-          </div>
-        </div>
-        <div class="form-row" style="margin-top:15px;">
-          <div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control" type="text" id="supplier" name="supplier" placeholder="Доставчик" /></div>
-          <div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control" type="text" id="type" name="type" placeholder="Вид" /></div>
-          <div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control" type="text" id="price" name="price" placeholder="Цена" /></div>
-          <div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control" type="text" id="warranty" name="warranty" placeholder="Гаранция" /></div>
-          <div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control" type="date" id="date" name="date" placeholder="Дата" /></div>
-          <div class="col-md-2" style="padding:0px;"><input class="col-md-12 form-control btn btn-primary" type="button" name="addNewPart" value="+" (click)="addServicePart(service.serviceProtocolFormData.id)" /></div>
-        </div>-->
       </section> 
        <div class="form-group mt20">
         <div class="row mb20">
@@ -176,78 +157,3 @@
     </form>
   </div>
 </div>
-
-  
-  <!-- <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Редактирай част/услуга</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="Supplier">Доставчик</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text bg-white">
-                <i class="fa fa-ellipsis-v" title="Supplier"></i>
-              </div>
-            </div>
-            <input #Supplier="ngModel" [(ngModel)]="part.supplier" name="Supplier" class="form-control not-required">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="PartType">Вид</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text bg-white">
-                <i class="fas fa-ellipsis-v" title="PartType"></i>
-              </div>
-            </div>
-            <input #PartType="ngModel" [(ngModel)]="part.partType" name="PartType" class="form-control not-required">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="Supplier">Дата</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text bg-white">
-                <i class="fa fa-clock" title="Date"></i>
-              </div>
-            </div>
-            <input #Date="ngModel" [(ngModel)]="part.date" name="Date" type="date" class="form-control not-required">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="PartPrice">Цена</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                  <i class="fas fa-ellipsis-v" title="PartPrice"></i>
-                </div>
-              </div>
-              <input #PartPrice="ngModel" [(ngModel)]="part.partPrice" name="PartPrice" class="form-control not-required">
-            </div>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="WarrantyPeriod">Гаранция в месеци</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                  <i class="fas fa-ellipsis-v" title="WarrantyPeriod"></i>
-                </div>
-              </div>
-              <input [(ngModel)]="part.warrantyPeriod" name="WarrantyPeriod" class="form-control not-required">
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Запази</button>
-    </div>
-  </ng-template>
-   -->
