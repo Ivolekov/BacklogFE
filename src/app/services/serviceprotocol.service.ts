@@ -19,12 +19,12 @@ export class ServiceprotocolService {
     return this.http.get<Array<ServiceProtocol>>(this.serviceProtocolPath);
   }
 
-  getServiceProtocol(id: string): Observable<ServiceProtocol>{
-    return this.http.get<ServiceProtocol>(this.serviceProtocolPath + "/" + id);
+  getServiceProtocol(protocolId: string): Observable<ServiceProtocol>{
+    return this.http.get<ServiceProtocol>(this.serviceProtocolPath + "/" + protocolId);
   }
 
-  edit(data: any, id:number){
-    return this.http.put(this.serviceProtocolPath + "/" + id, data)
+  edit(data: any, protocolId: number){
+    return this.http.put(this.serviceProtocolPath + "/" + protocolId, data)
   }
 
   changeServiceProtocolStatus(id: number, statusId: number,){

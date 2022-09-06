@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private loaderService: LoaderService,) {
     this.loginForm = this.fb.group({
       'username' : ['', Validators.required],
       'password' : ['', Validators.required]
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    this.loaderService.showLoader = true;
     this.authService.login(this.loginForm.value).subscribe( data => {
       this.authService.saveToken(data['token']);
       this.router.navigate([""]);
